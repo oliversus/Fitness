@@ -2,10 +2,12 @@ package sus.oliver.fitness;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.LinearLayout;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -40,12 +42,15 @@ public class SettingsActivity extends AppCompatActivity {
 
     public void setDark(View view){
 
+        LinearLayout settingsLayout = (LinearLayout) findViewById(R.id.settingsLayout);
         checked = ((CheckBox) view).isChecked();
 
         if (checked) {
             MainActivity.exerciseIsNight = true;
+            settingsLayout.setBackgroundColor(Color.DKGRAY);
         } else {
             MainActivity.exerciseIsNight = false;
+            settingsLayout.setBackgroundColor(Color.WHITE);
         }
 
     }
